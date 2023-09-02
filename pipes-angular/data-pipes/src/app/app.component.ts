@@ -10,9 +10,9 @@ import { Component } from '@angular/core';
   `,
 })
 export class AppComponent {
-  dataString: Date = new Date();
-  testDate: string | null = '2023-09-03';
+  dataString: Date = new Date(); //bu sade yazim sheklidir.
+  testDate: string | null = '2023-09-03'; //Bu ve altdaki "constructor" input ücün olan yazim sheklidir.
   constructor(private _date: DatePipe) {
-    this.testDate = this._date.transform(new Date(), 'yyyy-MM-dd HH:mm');
+    this.testDate = this._date.transform(new Date(), 'yyyy-MM-dd HH:mm'); //Bu da input ücün olan yazim sheklidir.
   }
 }

@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `
+    <a routerLink="/">Home</a> || <a routerLink="/login">Login</a>
+    <h3>Guards</h3>
+    <router-outlet></router-outlet>
+  `,
 })
-export class AppComponent {
-  title = 'can-activate';
-}
+export class AppComponent {}

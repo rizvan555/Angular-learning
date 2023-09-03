@@ -1,0 +1,6 @@
+<p>home works!</p>
+<p style="color: red">
+  {{ _home.edit ? "Your update is open" : "Your update is close" }}
+</p>
+<button *ngIf="!_home.edit" (click)="_home.edit = true">Open-Click</button>
+<button *ngIf="_home.edit" (click)="_home.edit = false">Close-Click</button>

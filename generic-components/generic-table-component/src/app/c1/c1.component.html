@@ -1,0 +1,11 @@
+<p>c1 works!</p>
+<app-table [heads]="heads">
+  <tr *ngFor="let x of list; let i = index">
+    <td style="text-align: center; border: 1px solid #c1c1c1">{{ i + 1 }}.</td>
+    <td style="text-align: center; border: 1px solid #c1c1c1">{{ x.name }}</td>
+    <td style="text-align: center; border: 1px solid #c1c1c1">
+      {{ x.lastname }}
+    </td>
+    <td style="text-align: center; border: 1px solid #c1c1c1">{{ x.age }}</td>
+  </tr>
+</app-table>

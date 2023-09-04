@@ -1,0 +1,21 @@
+<ng-template #tfoot></ng-template>
+
+<table style="border: 1px solid #c1c1c1; width: 100%">
+  <thead>
+    <tr style="border: 1px solid #c1c1c1">
+      <th
+        *ngFor="let head of heads; let i = index"
+        style="border: 1px solid #c1c1c1"
+      >
+        {{ head }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-content></ng-content>
+  </tbody>
+
+  <tfoot>
+    <ng-container *ngTemplateOutlet="tfoot"></ng-container>
+  </tfoot>
+</table>

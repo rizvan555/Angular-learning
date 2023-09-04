@@ -1,0 +1,6 @@
+<h2>Todo-List Component</h2>
+<ul>
+  <li *ngFor="let todo of todos; let i = index" style="list-style-type: none">
+    <strong>{{ i + 1 }}.</strong> {{ todo }}
+  </li>
+</ul>

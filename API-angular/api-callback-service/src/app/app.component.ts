@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { AppService } from './services/app.service';
-import { HttpErrorResponse } from '@angular/common/http';
-import { ErrorService } from './services/error.service';
 
 @Component({
   selector: 'app-root',
@@ -14,13 +12,13 @@ export class AppComponent {
   title: string = '';
 
   constructor(private _app: AppService) {
-    _app.getMethode((res) => {
+    _app.get((res) => {
       console.log(res);
     });
   }
 
   sendRequest() {
-    this._app.postMethode(
+    this._app.post(
       {
         userId: 1,
         id: 0,

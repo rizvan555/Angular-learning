@@ -15,7 +15,7 @@ import { addUser } from './users.action';
 export class AppComponent {
   user: UserModel = new UserModel();
 
-  constructor(private store: Store<{ users: UserModel[] }>) {}
+  constructor(private store: Store) {}
 
   addUser() {
     this.store.dispatch(addUser({ user: this.user }));

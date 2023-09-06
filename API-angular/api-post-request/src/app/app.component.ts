@@ -29,5 +29,21 @@ export class AppComponent {
       });
   }
 
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient) {
+    //Bu "headers" qismi sirf authorizasiya ve ya token elave etmek ücün yazilir.Bunu yazandan sonra asagida da elave etmeyi unutma
+    let headers = {
+      headers: { authorization: 'My Name Is Rizvan' },
+    };
+
+    this._http
+      .get('https://jsonplaceholder.typicode.com/todos', headers)
+      .subscribe({
+        next: (res: any) => {
+          console.log(res);
+        },
+        error: (err: HttpErrorResponse) => {
+          console.log(err);
+        },
+      });
+  }
 }

@@ -4,8 +4,9 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
+  HttpErrorResponse,
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, catchError, of } from 'rxjs';
 
 @Injectable()
 export class TestInterceptor implements HttpInterceptor {
@@ -21,6 +22,13 @@ export class TestInterceptor implements HttpInterceptor {
       headers: request.headers.set('Authentication', 'Baerer ' + token),
     });
 
-    return next.handle(newRequest);
+    // Burada "pipe" elave ederek devamini yazib "error" ücün hazir template hazirlamish oluruq ve bununla da her defe error funksiyasini yazmagimiza ehiyyac qalmir.
+    return next.handle(newRequest).pipe(
+      catchError((err: HttpErrorResponse) => {
+        console.log(err);
+
+        return of();
+      })
+    );
   }
 }

@@ -1,0 +1,24 @@
+<h1>NgForm</h1>
+<form #loginForm="ngForm">
+  <div>
+    Email:
+    <input
+      type="text"
+      name="email"
+      ngModel
+      #email
+      email
+      required
+      minlength="3"
+    />
+  </div>
+  <div>
+    Password:
+    <input type="text" name="password" ngModel required minlength="2" />
+  </div>
+  <div>
+    <button [disabled]="!loginForm.valid" (click)="login(loginForm)">
+      Enter
+    </button>
+  </div>
+</form>

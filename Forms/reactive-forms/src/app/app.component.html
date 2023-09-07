@@ -1,0 +1,15 @@
+<h1>Reactive Forms</h1>
+
+<form [formGroup]="addForm">
+  <div>
+    <div>Email</div>
+    <input type="text" formControlName="email" />
+  </div>
+  <div>
+    <div>Password</div>
+    <input type="text" formControlName="password" />
+  </div>
+  <br />
+  <!-- Burada "disabled" onu gosterir ki, menim form shertlerim duzgun yazilmadigi muddetce button ishlek olmayacaq-->
+  <button [disabled]="!addForm.valid" (click)="add()">Save</button>
+</form>

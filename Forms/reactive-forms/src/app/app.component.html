@@ -10,6 +10,7 @@
     <input type="text" formControlName="password" />
   </div>
   <br />
+
   <!-- Burada "disabled" onu gosterir ki, menim form shertlerim duzgun yazilmadigi muddetce button ishlek olmayacaq-->
   <button [disabled]="!addForm.valid" (click)="add()">Save</button>
 </form>

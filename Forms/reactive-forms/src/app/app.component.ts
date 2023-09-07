@@ -18,6 +18,6 @@ export class AppComponent {
 
   add() {
     console.log(this.addForm);
-    this.addForm.reset(); //buttona baadiqdan sonra inputlarin icini bosaldir
+    this.addForm.reset(); //buttona basdiqdan sonra inputlarin icini bosaldir
   }
 }

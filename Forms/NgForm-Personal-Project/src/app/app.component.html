@@ -1,0 +1,50 @@
+<h1>NgForm Personal project</h1>
+
+<div>
+  <form #addForm="ngForm" (ngSubmit)="save(addForm)">
+    <div>
+      Personal Name:
+      <input type="text" name="name" ngModel required minlength="3" />
+    </div>
+    <div>
+      Department:
+      <select name="department" ngModel required minlength="3">
+        <option>Developer</option>
+        <option>Audit</option>
+        <option>Finans</option>
+      </select>
+    </div>
+    <div>
+      Starting Date:
+      <input
+        type="date"
+        name="startingDate"
+        [(ngModel)]="currentDate"
+        required
+      />
+    </div>
+    <div>
+      <button [disabled]="!addForm.valid">Save</button>
+    </div>
+  </form>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Personal Name</th>
+        <th>Department</th>
+        <th>StartingDate</th>
+        <th>Others</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let e of employees; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ e.name }}</td>
+        <td>{{ e.department }}</td>
+        <td>{{ e.startingDate | date : "dd.MM.yyyy" }}</td>
+        <td><button (click)="delete(i)">Remove</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

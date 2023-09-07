@@ -1,0 +1,49 @@
+<h1>Add Personal with ReactiveForm</h1>
+
+<form [formGroup]="addForm">
+  <div>
+    <div>Name</div>
+    <input type="text" formControlName="name" />
+  </div>
+  <br />
+  <div>
+    <div>Department</div>
+    <select formControlName="department">
+      <option>Development</option>
+      <option>Finans</option>
+      <option>Accounting</option>
+    </select>
+  </div>
+  <br />
+  <div>
+    <div>Starting date</div>
+    <input type="date" formControlName="startingDate" />
+  </div>
+  <br />
+  <div>
+    <button [disabled]="!addForm.valid" (click)="saveInfos()">Save</button>
+  </div>
+</form>
+<hr />
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Department</th>
+      <th>StartDate</th>
+      <th>Other</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let e of employees; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ e.name }}</td>
+      <td>{{ e.department }}</td>
+      <td>{{ e.startingDate | date : "dd.MM.yyyy" }}</td>
+      <td>
+        <button (click)="cleanInfos(i)">Reset</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
